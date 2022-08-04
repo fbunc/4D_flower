@@ -1,3 +1,5 @@
+#
+
 import matplotlib.pyplot as plt
 from matplotlib import cm
 import warnings
@@ -264,79 +266,118 @@ z_carrier_orig=z_carrier
 k=-1
 #z_carrier=z_carrier**(-k)
  #prime symbol size
-b_size=39*6
-T_color=39*6
-T_mod=39*6
+b_size=39*39
+T_color=39*2
+T_mod=T_color
 hsvwheel = cm.get_cmap('hsv', T_color)
 
 nmod = events_index%T_mod
 symbol=nmod
-size_prime=(13)**(0.5*(1+np.sqrt(7)))
-alpha_p=0.3
-dd=0.02
 for n in np.arange(z_carrier[0:b_size].size):
   
   if isPrime(n):
-    event_marker="d"
-    size=size_prime
-    #ax.scatter((-1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=11*size,marker='*')
-    ax.scatter((-1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=3*size,marker='*',alpha=0.9)
-    ax.text((-1)*z_carrier_beta[n]+dd,(-1)*z_carrier_alpha[n]+dd,np.log(np.abs(z_carrier[n]))+dd,str(n), color='white', size=13,alpha=0.8)
-    
-    ax.scatter(z_carrier_alpha[n],z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    ax.scatter((+1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    ax.scatter((-1)*z_carrier_alpha[n],(+1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    ax.scatter((-1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    ax.scatter(z_carrier_beta[n],z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    ax.scatter((+1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    ax.scatter((-1)*z_carrier_beta[n],(+1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=size,marker=event_marker,alpha=alpha_p)
-    
-    
-    
+    event_marker="o"
+    size=(13)**(0.5*(1+np.sqrt(7)))
+    ax.scatter(z_carrier_alpha[n],z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-7]),s=size/2,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_A_%d.png' % n)
+    ax.scatter((+1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-6]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_B_%d.png' % n)
+    ax.scatter((-1)*z_carrier_alpha[n],(+1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-5]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_C_%d.png' % n)
+    ax.scatter((-1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-4]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_D_%d.png' % n)
+    ax.scatter(z_carrier_beta[n],z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-3]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_E_%d.png' % n)
+    ax.scatter((+1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-2]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_F_%d.png' % n)
+    ax.scatter((-1)*z_carrier_beta[n],(+1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-1]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_G_%d.png' % n)
+    ax.scatter((-1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=2*size,marker='*')
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/prime_H_%d.png' % n)
   else:
     event_marker="o"
-    size=13*1.4
-    ax.scatter((-1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=2.3*size,marker='*')
-    ax.scatter(z_carrier_alpha[n],z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-    ax.scatter((+1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-    ax.scatter((-1)*z_carrier_alpha[n],(+1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-
-    ax.scatter((-1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-
-    ax.scatter(z_carrier_beta[n],z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-
-    ax.scatter((+1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-
-    ax.scatter((-1)*z_carrier_beta[n],(+1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color='gray',s=size,marker=event_marker)
-
-  plt.savefig('/content/drive/MyDrive/4D_flower/primes_observer_path_4D_flower%d.png' % n)
+    size=13*2.17
+    ax.scatter(z_carrier_alpha[n],z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-7]),s=size/2,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_A_%d.png' % n)
+    ax.scatter((+1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-6]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_B_%d.png' % n)
+    ax.scatter((-1)*z_carrier_alpha[n],(+1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-5]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_C_%d.png' % n)
+    ax.scatter((-1)*z_carrier_alpha[n],(-1)*z_carrier_beta[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-4]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_D_%d.png' % n)
+    ax.scatter(z_carrier_beta[n],z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-3]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_E_%d.png' % n)
+    ax.scatter((+1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-2]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_F_%d.png' % n)
+    ax.scatter((-1)*z_carrier_beta[n],(+1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-1]),s=size,marker=event_marker)
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_G_%d.png' % n)
+    ax.scatter((-1)*z_carrier_beta[n],(-1)*z_carrier_alpha[n],np.log(np.abs(z_carrier[n])),color=hsvwheel(symbol[n-0]),s=2*size,marker='*')
+    plt.savefig('/content/drive/MyDrive/out_primes_entangled/np_H_%d.png' % n)
 
    
+  #append current plot to ims
+  #fig.canvas.draw()
+  #im = np.frombuffer(fig.canvas.tostring_rgb(), dtype='uint8')
+  #ims.append([im.reshape(-1,1)])
+  plt.savefig('/content/drive/MyDrive/out_primes_entangled/eight_entangled_events_time_slice_%d.png' % n)
 
+#ani = animation.ArtistAnimation(fig, ims)
+#Writer = animation.writers['ffmpeg']
+#writer = Writer(fps=fps)
+#ani.save(f'{path_out}{text}.mp4', writer=writer)
+#ani.save(f'{path_out}{text}.mp4', writer=writer)
+plt.show()
+
+
+
+  
+  #plt.savefig(f'/content/drive/MyDrive/eigen_hole_{n}.png',dpi=dots_per_inch)
+
+from matplotlib import pyplot as plt
+import numpy as np
+import mpl_toolkits.mplot3d.axes3d as p3
+from matplotlib import animation
+
+
+fig = plt.figure()
+ax = p3.Axes3D(fig)
+
+q = [[-4.32, -2.17, -2.25, 4.72, 2.97, 1.74],
+     [ 2.45, 9.73,  7.45,4.01,3.42,  1.80],[-1.40, -1.76, -3.08,-9.94,-3.13,-1.13]]
+v = [[ 0.0068,0.024, -0.014,-0.013, -0.0068,-0.04],[ 0.012,
+      0.056, -0.022,0.016,  0.0045, 0.039],
+     [-0.0045,  0.031,  0.077,0.0016, -0.015,-0.00012]]
+
+x=np.array(q[0])
+y=np.array(q[1])
+z=np.array(q[2])
+s=np.array(v[0])
+u=np.array(v[1])
+w=np.array(v[2])
+
+
+points, = ax.plot(x, y, z, '*')
+txt = fig.suptitle('')
+
+def update_points(num, x, y, z, points):
+    txt.set_text('num={:d}'.format(num)) # for debug purposes
+
+    # calculate the new sets of coordinates here. The resulting arrays should have the same shape
+    # as the original x,y,z
+    new_x = x+np.random.normal(1,0.1, size=(len(x),))
+    new_y = y+np.random.normal(1,0.1, size=(len(y),))
+    new_z = z+np.random.normal(1,0.1, size=(len(z),))
+
+    # update properties
+    points.set_data(new_x,new_y)
+    points.set_3d_properties(new_z, 'z')
+
+    # return modified artists
+    return points,txt
+
+ani=animation.FuncAnimation(fig, update_points, frames=10, fargs=(x, y, z, points))
 
 plt.show()
-  
-plt.savefig(f'/content/drive/MyDrive/4D_flower/00000_primes_observer_LAST_image.png',dpi=dots_per_inch)
-
-   
-#   #append current plot to ims
-#   #fig.canvas.draw()
-#   #im = np.frombuffer(fig.canvas.tostring_rgb(), dtype='uint8')
-#   #ims.append([im.reshape(-1,1)])
-#   #plt.savefig('/content/drive/MyDrive/out_primes_entangled/eight_entangled_events_time_slice_%d.png' % n)
-
-# #ani = animation.ArtistAnimation(fig, ims)
-# #Writer = animation.writers['ffmpeg']
-# #writer = Writer(fps=fps)
-# #ani.save(f'{path_out}{text}.mp4', writer=writer)
-# #ani.save(f'{path_out}{text}.mp4', writer=writer)
-# plt.show()
 
 
 
