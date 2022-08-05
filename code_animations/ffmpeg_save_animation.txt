@@ -1,0 +1,1 @@
+ffmpeg -r 1 -i primes_4D_flower%1d.png -vcodec mpeg4 -y entangled_primes_flower.mp4

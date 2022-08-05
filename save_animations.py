@@ -26,7 +26,6 @@ import pandas as pd
             
 #     return answer
 
-!apt-get install qt
 
 import matplotlib.pyplot as plt 
 import matplotlib.image as mgimg
