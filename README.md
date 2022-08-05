@@ -1,5 +1,9 @@
 
+
+
 Just the observer:
+
+
 ![](https://github.com/fbunc/4D_flower/blob/master/just_one_observer/just_the_observer_path_4D_flower223.png?raw=true)
 
 
