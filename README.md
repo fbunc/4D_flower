@@ -1,5 +1,5 @@
 
-Take this as art co-created by the growing math/science educational community:
+Co-created by the growing math/science educational community:
 
 Just one spaghetti-observer...
 
